@@ -1,1 +1,1 @@
-# paraconsistent
+This algorithm is a numpy implementation, focusing on the linear algebra functions and broadcasting characteristic of numpy. The [fuzzy c-means](https://dl.acm.org/doi/10.5555/539444) algorithm was derived in 1981 and has continued to be a well-used method to within the machine learning community. 
