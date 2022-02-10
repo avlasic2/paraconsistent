@@ -1,1 +1,2 @@
-# paraconsistent
+# Incorporate Paraconsistency in Modeling
+It is quite natural for data to encompass ambiguity, leading to poor model performance. This is typically due to contradictions within the data, for example, two similar data points belonging to different classes. To adjust for contradictions, paraconsistent logic, a generalization of Boolean logic, is incorporated into modeling by embracing contradictions instead of neglecting for the fuzziness. 
