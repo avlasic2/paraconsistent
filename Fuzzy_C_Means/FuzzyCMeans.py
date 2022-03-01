@@ -3,7 +3,7 @@ from typing import Union
 from tqdm import tqdm
 
 class FuzzyCMeans():
-    def __init__(self, data:np.ndarray, numberClusters:int, useKLDiv:bool = False ):
+    def __init__(self, data:np.ndarray, numberClusters:int, useKLDiv:bool=False ):
         self.numberClusters = numberClusters
         self.useKLDiv = useKLDiv
 
@@ -40,14 +40,14 @@ class FuzzyCMeans():
         self.weights = (1./( np.einsum('ij,ik->jik', dist, dist**(-1)) ).sum(2) ).T
 
 
-    def _dataCenterDistLP(self, ar1:np.ndarray, ar2:np.ndarray, lp:float = 2.)->np.ndarray:
+    def _dataCenterDistLP(self, ar1:np.ndarray, ar2:np.ndarray, lp:float=2.)->np.ndarray:
         return ( ( ( ar1[:, np.newaxis] - ar2 )**lp ).sum(2) )**(1./lp)
 
 
-    def _dataCenterDistKL(self, ar1:np.ndarray, ar2:np.ndarray, lp=2.)->np.ndarray:
+    def _dataCenterDistKL(self, ar1:np.ndarray, ar2:np.ndarray, lp=None)->np.ndarray:
         return (-1.) * ( np.array([ar2] * ar1.shape[0]) * np.log(ar1[:, np.newaxis] * ar2 ** (-1)) ).sum(2)
 
-    def train(self, power:float=2., lp:float=2.,  epsilon:float=.01, runs:float = 1000):
+    def train(self, power:float=2., lp:float=2.,  epsilon:float=.01, runs:int=1000):
         previousWeights = self.weights.copy()
 
         err = 2*epsilon
