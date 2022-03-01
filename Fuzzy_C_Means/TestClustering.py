@@ -16,7 +16,8 @@ indices = [0,1,2,3,4,500,501,502,503,504]
 #display data
 print( 'Data points:\n', data[ indices ] )
 
-#display the soft predicted group each data point was calculated to be with
+#display the soft predicted class each data point was calculated to be with
 print( 'Predicted cluster for each data point:', model.softPredict( indices ) )
 
+#print weights for each class
 print('Weights for each data points:\n', model.weights[ indices ])
